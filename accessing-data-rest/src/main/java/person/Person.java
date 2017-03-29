@@ -1,4 +1,4 @@
-package hello;
+package person;
 
 import lombok.Data;
 import lombok.NonNull;
@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * @author : Tomasz Czerwonka
+ */
 @Entity
 @Data
 @RequiredArgsConstructor

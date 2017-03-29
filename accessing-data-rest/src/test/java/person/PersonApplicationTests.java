@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package hello;
+package person;
 
 import org.junit.Before;
 import org.junit.Test;
