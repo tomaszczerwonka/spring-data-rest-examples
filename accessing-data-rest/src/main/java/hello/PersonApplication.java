@@ -16,8 +16,8 @@ public class PersonApplication {
 		SpringApplication.run(PersonApplication.class, args);
 	}
 
-	public @PostConstruct
-	void init() {
+	@PostConstruct
+	public void init() {
 		Person dave = new Person("Dave", "Matthews");
 		dave.setAge(18);
 		personRepository.save(dave);
