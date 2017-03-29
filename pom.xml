@@ -19,7 +19,7 @@
     </properties>
 
     <modules>
-      <module>gs-accessing-data-rest</module>
+      <module>accessing-data-rest</module>
     </modules>
 
     <dependencies>

@@ -9,7 +9,7 @@
         <version>0.1.0</version>
     </parent>
 
-    <artifactId>gs-accessing-data-rest</artifactId>
+    <artifactId>accessing-data-rest</artifactId>
     <version>0.1.0</version>
     <packaging>jar</packaging>
 
