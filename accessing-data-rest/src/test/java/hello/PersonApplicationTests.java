@@ -92,6 +92,20 @@ public class PersonApplicationTests {
 	}
 
 	@Test
+	public void shouldQueryEntityLike() throws Exception {
+
+		mockMvc.perform(post("/people").content(
+				"{ \"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")).andExpect(
+						status().isCreated());
+
+		mockMvc.perform(
+				get("/people/search/findByLastNameStartingWith?name={name}", "Bag")).andExpect(
+						status().isOk()).andExpect(
+								jsonPath("$._embedded.people[0].firstName").value(
+										"Frodo"));
+	}
+
+	@Test
 	public void shouldUpdateEntity() throws Exception {
 
 		MvcResult mvcResult = mockMvc.perform(post("/people").content(
