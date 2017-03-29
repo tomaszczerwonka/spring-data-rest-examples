@@ -1,7 +1,7 @@
 # spring-data-rest-examples
 Project shows a few examples of use Spring Data REST.
 
-##Project modules
+## Project modules
 * **accessing-data-rest**
     + shows basic framework features
     + includes HAL Browser
