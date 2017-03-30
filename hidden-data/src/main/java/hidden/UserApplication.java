@@ -22,11 +22,14 @@ public class UserApplication {
     @PostConstruct
     public void init() {
         User admin = new User("admin");
-        admin.setRoles(new String[]{"Super User"});
+        admin.setRoles(new String[]{"Super Admin"});
         admin.setPassword("admin123");
         userRepository.save(admin);
-        User user = new User("user");
+        User user = new User("normaluser");
         user.setRoles(new String[]{"Normal User"});
         userRepository.save(user);
+        User powerUser = new User("poweruser");
+        powerUser.setRoles(new String[]{"Normal User, Power User"});
+        userRepository.save(powerUser);
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
+ * A repository to manage {@link Person} instances.
+ *
  * @author : Tomasz Czerwonka
  */
 @RepositoryRestResource(collectionResourceRel = "people", path = "people")
