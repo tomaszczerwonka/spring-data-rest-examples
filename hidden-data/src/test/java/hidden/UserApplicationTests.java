@@ -56,4 +56,33 @@ public class UserApplicationTests {
         mockMvc.perform(get(location)).andExpect(status().isOk()).andExpect(
                 jsonPath("$.name").value("admin"));
     }
+
+    @Test
+    public void shouldRetrieveEntityPasswordProjection() throws Exception {
+        User admin = new User("admin");
+        admin.setPassword("admin123");
+        userRepository.save(admin);
+
+        mockMvc.perform(
+                get("/users?projection={projection}", "passwords")).andExpect(
+                status().isOk()).andExpect(
+                jsonPath("$._embedded.users[0].password").value(
+                        "admin123"));
+    }
+
+    @Test
+    public void shouldRetrieveEntityUserProjection() throws Exception {
+        mockMvc.perform(post("/users").content(
+                "{\"name\": \"poweruser\",\n" +
+                        "        \"roles\": [\n" +
+                        "          \"Normal User, Power User\"\n" +
+                        "        ]}")).andExpect(
+                status().isCreated());
+
+        mockMvc.perform(
+                get("/users?projection={projection}", "virtual")).andExpect(
+                status().isOk()).andExpect(
+                jsonPath("$._embedded.users[0].userInfo").value(
+                        "poweruser with roles Normal User, Power User"));
+    }
 }

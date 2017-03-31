@@ -21,6 +21,8 @@
     <modules>
       <module>accessing-data-rest</module>
         <module>hidden-data</module>
+        <module>realationdata</module>
+        <module>relation-data</module>
     </modules>
 
     <dependencies>

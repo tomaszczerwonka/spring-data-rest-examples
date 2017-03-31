@@ -9,3 +9,5 @@ Project shows a few examples of use Spring Data REST.
 * **hidden-data**
     + shows how to hide some fields if you don't want to expose them
     + shows how to project some fields in specific way using `Projection` annotation
+* **relation-data**
+    + shows how to expose data realated to each other, list them, add items, delete data with REST API
