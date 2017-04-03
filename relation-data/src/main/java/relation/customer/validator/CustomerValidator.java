@@ -1,7 +1,6 @@
 package relation.customer.validator;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 import relation.customer.Customer;
@@ -11,7 +10,7 @@ import relation.customer.Customer;
  *
  * @author : Tomasz Czerwonka, Sii
  */
-@Component("beforeCreateCustomerValidator")
+//@Component("beforeCreateCustomerValidator")
 public class CustomerValidator implements Validator {
 
     @Override
@@ -23,9 +22,15 @@ public class CustomerValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Customer customer = (Customer) o;
         if (StringUtils.isEmpty(customer.getFirstname()) || customer.getFirstname().length() < 2) {
-            errors.rejectValue("firstname", "firstname.empty");
-        } else if (StringUtils.isEmpty(customer.getLastname()) || customer.getLastname().length() < 2) {
-            errors.rejectValue("lastname", "lastname.empty");
+            errors.rejectValue("firstname", "-1", "firstname is to short");
+//todo:tczerwonka not working errors.reject("Wrong field firstname");
+//todo:tczerwonka not working errors.reject("-100", "Wrong field firstname");
+        }
+
+        if (StringUtils.isEmpty(customer.getLastname()) || customer.getLastname().length() < 2) {
+            errors.rejectValue("lastname", "-2", "lastname is to short");
         }
     }
+
+
 }
