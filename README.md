@@ -11,3 +11,4 @@ Project shows a few examples of use Spring Data REST.
     + shows how to project some fields in specific way using `Projection` annotation
 * **relation-data**
     + shows how to expose data realated to each other, list them, add items, delete data with REST API
+    + custom data validation
