@@ -12,3 +12,5 @@ Project shows a few examples of use Spring Data REST.
 * **relation-data**
     + shows how to expose data realated to each other, list them, add items, delete data with REST API
     + custom data validation
+    + using @RestResource annotation
+    + custom description for ALPS

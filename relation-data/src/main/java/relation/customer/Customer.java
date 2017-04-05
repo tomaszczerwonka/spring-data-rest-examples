@@ -2,6 +2,7 @@ package relation.customer;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.rest.core.annotation.Description;
 
 import javax.persistence.*;
 
@@ -13,7 +14,11 @@ public class Customer {
     private @GeneratedValue
     @Id
     Long id;
-    private final String firstname, lastname;
+    @Description("Customer first name")
+    private final String firstname;
+    @Description("Customer last name")
+    private final String lastname;
+//    @Description("The customer's sex")
     private final Gender gender;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)//
