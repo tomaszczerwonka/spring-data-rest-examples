@@ -24,6 +24,8 @@ public class PersonApplication {
 		Person dave = new Person("Dave", "Matthews");
 		dave.setAge(18);
 		personRepository.save(dave);
-		personRepository.save(new Person("Joana", "Blue"));
+		Person joana = new Person("Joana", "Blue");
+		joana.setAge(17);
+		personRepository.save(joana);
 	}
 }
