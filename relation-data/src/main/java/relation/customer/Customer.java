@@ -15,18 +15,17 @@ public class Customer {
     @Id
     Long id;
     @Description("Customer first name")
-    private final String firstname;
+    private final String firstName;
     @Description("Customer last name")
-    private final String lastname;
-//    @Description("The customer's sex")
+    private final String lastName;
     private final Gender gender;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)//
     private final Address address;
 
     Customer() {
-        this.firstname = null;
-        this.lastname = null;
+        this.firstName = null;
+        this.lastName = null;
         this.address = null;
         this.gender = null;
     }

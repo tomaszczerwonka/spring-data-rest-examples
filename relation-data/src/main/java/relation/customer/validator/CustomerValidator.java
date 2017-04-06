@@ -8,7 +8,7 @@ import relation.customer.Customer;
 /**
  * Validator for {@link Customer} entity.
  *
- * @author : Tomasz Czerwonka, Sii
+ * @author : Tomasz Czerwonka
  */
 //@Component("beforeCreateCustomerValidator")
 public class CustomerValidator implements Validator {
@@ -21,13 +21,13 @@ public class CustomerValidator implements Validator {
     @Override
     public void validate(Object o, Errors errors) {
         Customer customer = (Customer) o;
-        if (StringUtils.isEmpty(customer.getFirstname()) || customer.getFirstname().length() < 2) {
+        if (StringUtils.isEmpty(customer.getFirstName()) || customer.getFirstName().length() < 2) {
             errors.rejectValue("firstname", "-1", "firstname is to short");
-//todo:tczerwonka not working errors.reject("Wrong field firstname");
-//todo:tczerwonka not working errors.reject("-100", "Wrong field firstname");
+//tczerwonka not working errors.reject("Wrong field firstname");
+//tczerwonka not working errors.reject("-100", "Wrong field firstname");
         }
 
-        if (StringUtils.isEmpty(customer.getLastname()) || customer.getLastname().length() < 2) {
+        if (StringUtils.isEmpty(customer.getLastName()) || customer.getLastName().length() < 2) {
             errors.rejectValue("lastname", "-2", "lastname is to short");
         }
     }
