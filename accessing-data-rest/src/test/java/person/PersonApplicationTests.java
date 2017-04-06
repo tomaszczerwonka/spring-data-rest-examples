@@ -59,7 +59,7 @@ public class PersonApplicationTests {
 	public void shouldCreateEntity() throws Exception {
 
 		mockMvc.perform(post("/people").content(
-				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")).andExpect(
+				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\", \"age\":\"18\"}")).andExpect(
 						status().isCreated()).andExpect(
 								header().string("Location", containsString("people/")));
 	}
@@ -68,7 +68,7 @@ public class PersonApplicationTests {
 	public void shouldRetrieveEntity() throws Exception {
 
 		MvcResult mvcResult = mockMvc.perform(post("/people").content(
-				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")).andExpect(
+				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\", \"age\":\"18\"}")).andExpect(
 						status().isCreated()).andReturn();
 
 		String location = mvcResult.getResponse().getHeader("Location");
@@ -81,7 +81,7 @@ public class PersonApplicationTests {
 	public void shouldQueryEntity() throws Exception {
 
 		mockMvc.perform(post("/people").content(
-				"{ \"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")).andExpect(
+				"{ \"firstName\": \"Frodo\", \"lastName\":\"Baggins\", \"age\":\"18\"}")).andExpect(
 						status().isCreated());
 
 		mockMvc.perform(
@@ -95,7 +95,7 @@ public class PersonApplicationTests {
 	public void shouldQueryEntityLike() throws Exception {
 
 		mockMvc.perform(post("/people").content(
-				"{ \"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")).andExpect(
+				"{ \"firstName\": \"Frodo\", \"lastName\":\"Baggins\", \"age\":\"18\"}")).andExpect(
 						status().isCreated());
 
 		mockMvc.perform(
@@ -109,13 +109,13 @@ public class PersonApplicationTests {
 	public void shouldUpdateEntity() throws Exception {
 
 		MvcResult mvcResult = mockMvc.perform(post("/people").content(
-				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")).andExpect(
+				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\", \"age\":\"18\"}")).andExpect(
 						status().isCreated()).andReturn();
 
 		String location = mvcResult.getResponse().getHeader("Location");
 
 		mockMvc.perform(put(location).content(
-				"{\"firstName\": \"Bilbo\", \"lastName\":\"Baggins\"}")).andExpect(
+				"{\"firstName\": \"Bilbo\", \"lastName\":\"Baggins\", \"age\":\"18\"}")).andExpect(
 						status().isNoContent());
 
 		mockMvc.perform(get(location)).andExpect(status().isOk()).andExpect(
@@ -127,7 +127,7 @@ public class PersonApplicationTests {
 	public void shouldPartiallyUpdateEntity() throws Exception {
 
 		MvcResult mvcResult = mockMvc.perform(post("/people").content(
-				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")).andExpect(
+				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\", \"age\":\"18\"}")).andExpect(
 						status().isCreated()).andReturn();
 
 		String location = mvcResult.getResponse().getHeader("Location");
@@ -145,7 +145,7 @@ public class PersonApplicationTests {
 	public void shouldDeleteEntity() throws Exception {
 
 		MvcResult mvcResult = mockMvc.perform(post("/people").content(
-				"{ \"firstName\": \"Bilbo\", \"lastName\":\"Baggins\"}")).andExpect(
+				"{ \"firstName\": \"Bilbo\", \"lastName\":\"Baggins\", \"age\":\"18\"}")).andExpect(
 						status().isCreated()).andReturn();
 
 		String location = mvcResult.getResponse().getHeader("Location");
