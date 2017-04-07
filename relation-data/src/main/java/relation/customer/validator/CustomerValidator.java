@@ -22,15 +22,11 @@ public class CustomerValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Customer customer = (Customer) o;
         if (StringUtils.isEmpty(customer.getFirstName()) || customer.getFirstName().length() < 2) {
-            errors.rejectValue("firstname", "-1", "firstname is to short");
-//tczerwonka not working errors.reject("Wrong field firstname");
-//tczerwonka not working errors.reject("-100", "Wrong field firstname");
+            errors.rejectValue("firstName", "-1", "firstName is to short");
         }
 
         if (StringUtils.isEmpty(customer.getLastName()) || customer.getLastName().length() < 2) {
-            errors.rejectValue("lastname", "-2", "lastname is to short");
+            errors.rejectValue("lastName", "-2", "lastName is to short");
         }
     }
-
-
 }
