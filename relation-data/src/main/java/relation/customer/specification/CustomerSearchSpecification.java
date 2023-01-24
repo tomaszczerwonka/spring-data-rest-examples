@@ -1,13 +1,13 @@
 package relation.customer.specification;
 
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.Predicate;
 import org.springframework.data.jpa.domain.Specification;
 import relation.customer.Address;
 import relation.customer.Address_;
 import relation.customer.Customer;
 import relation.customer.Customer_;
 
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
 

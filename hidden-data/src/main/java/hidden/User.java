@@ -1,25 +1,28 @@
 package hidden;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 /**
  * @author : Tomasz Czerwonka
  */
 @Entity
+@Table(name = "user_data")
 @Data
 @RequiredArgsConstructor
 public class User {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     @NonNull
     private String name;
@@ -30,6 +33,6 @@ public class User {
     private String[] roles;
 
     public User() {
-        name = null;
+        name = "";
     }
 }

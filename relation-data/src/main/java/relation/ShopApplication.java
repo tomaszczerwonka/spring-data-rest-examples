@@ -1,10 +1,11 @@
 package relation;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.rest.core.event.ValidatingRepositoryEventListener;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
+import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import relation.customer.Address;
 import relation.customer.Customer;
 import relation.customer.CustomerRepository;
@@ -13,14 +14,13 @@ import relation.order.Item;
 import relation.order.Order;
 import relation.order.OrderRepository;
 
-import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 
 /**
  * @author : Tomasz Czerwonka
  */
 @SpringBootApplication
-public class ShopApplication extends RepositoryRestConfigurerAdapter {
+public class ShopApplication implements RepositoryRestConfigurer {
 
     @Autowired
     CustomerRepository customerRepository;
@@ -32,9 +32,8 @@ public class ShopApplication extends RepositoryRestConfigurerAdapter {
     }
 
     @Override
-    public void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener validatingListener) {
-        super.configureValidatingRepositoryEventListener(validatingListener);
-        validatingListener.addValidator("beforeCreate", new CustomerValidator() );
+    public void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener validatingRepositoryEventListener) {
+        validatingRepositoryEventListener.addValidator("beforeCreate", new CustomerValidator());
     }
 
     @PostConstruct

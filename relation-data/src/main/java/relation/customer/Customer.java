@@ -1,26 +1,32 @@
 package relation.customer;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.rest.core.annotation.Description;
 
-import javax.persistence.*;
 
 @Entity
 @Data
 @RequiredArgsConstructor
 public class Customer {
 
-    private @GeneratedValue
     @Id
-    Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     @Description("Customer first name")
     private final String firstName;
     @Description("Customer last name")
     private final String lastName;
     private final Gender gender;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)//
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private final Address address;
 
     Customer() {
@@ -31,6 +37,6 @@ public class Customer {
     }
 
     public enum Gender {
-        MALE, FEMALE;
+        MALE, FEMALE
     }
 }

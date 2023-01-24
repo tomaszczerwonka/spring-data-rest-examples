@@ -1,9 +1,9 @@
 package relation.order;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author : Tomasz Czerwonka
  */
-public interface OrderRepository extends PagingAndSortingRepository<Order, Long>{
+public interface OrderRepository extends JpaRepository<Order, Long> {
 }

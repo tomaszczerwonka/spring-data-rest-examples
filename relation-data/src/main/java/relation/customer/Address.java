@@ -1,11 +1,11 @@
 package relation.customer;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 /**
  * @author : Tomasz Czerwonka
@@ -15,10 +15,14 @@ import javax.persistence.Id;
 @RequiredArgsConstructor
 public class Address {
 
-    @GeneratedValue
     @Id
-    private Long id;
-    private final String street, zipCode, city, state;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    private final String street;
+    private final String zipCode;
+    private final String city;
+    private final String state;
 
     Address() {
         this.street = null;

@@ -1,13 +1,14 @@
 package relation.order;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 
 /**
@@ -20,9 +21,9 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(of = "id")
 public class Item {
 
-    @GeneratedValue
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private final String description;
     private final BigDecimal price;
 
